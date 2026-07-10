@@ -362,6 +362,120 @@
     font-weight:600;
   }
 
+  /* BLOG */
+  .blog-section{
+    padding:48px 20px;
+  }
+  .blog-grid{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+    margin-top:20px;
+  }
+  .blog-card{
+    background:#fff;
+    border-radius:14px;
+    overflow:hidden;
+    box-shadow:0 4px 14px rgba(14,46,34,0.08);
+    cursor:pointer;
+    transition:transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .blog-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 24px rgba(14,46,34,0.15);
+  }
+  .blog-card-img{
+    height:140px;
+    background:linear-gradient(135deg, var(--jungle-dark), var(--jungle-light));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .blog-card-body{
+    padding:18px 20px 20px;
+  }
+  .blog-card-date{
+    font-size:10.5px;
+    font-weight:700;
+    letter-spacing:0.08em;
+    color:var(--rust);
+    margin-bottom:8px;
+  }
+  .blog-card h3{
+    font-size:16px;
+    color:var(--jungle-dark);
+    margin-bottom:8px;
+    text-transform:none;
+    font-family:'Inter';
+    font-weight:700;
+  }
+  .blog-card p{
+    font-size:13px;
+    color:#556B5D;
+    line-height:1.5;
+    margin-bottom:12px;
+  }
+  .blog-card .read-more{
+    font-size:12.5px;
+    font-weight:700;
+    color:var(--jungle);
+  }
+
+  /* BLOG MODAL */
+  .blog-modal-overlay{
+    display:none;
+    position:fixed; inset:0;
+    background:rgba(14,46,34,0.8);
+    z-index:100;
+    align-items:flex-start;
+    justify-content:center;
+    padding:20px;
+    overflow-y:auto;
+  }
+  .blog-modal-overlay.open{display:flex;}
+  .blog-modal{
+    background:var(--cream);
+    border-radius:16px;
+    max-width:620px;
+    width:100%;
+    padding:28px 24px;
+    position:relative;
+    margin:20px 0;
+  }
+  .blog-modal-close{
+    position:absolute; top:18px; right:18px;
+    background:rgba(19,74,52,0.08);
+    border:none;
+    width:32px; height:32px;
+    border-radius:50%;
+    font-size:16px; color:var(--jungle-dark);
+    cursor:pointer;
+  }
+  .blog-modal-date{
+    font-size:11px; font-weight:700; letter-spacing:0.08em;
+    color:var(--rust); margin-bottom:10px;
+  }
+  .blog-modal h3{
+    font-family:'Oswald';
+    font-size:24px;
+    color:var(--jungle-dark);
+    margin-bottom:16px;
+    padding-right:30px;
+  }
+  .blog-modal-body{
+    font-size:14.5px;
+    color:#3B4A41;
+    line-height:1.7;
+  }
+  .blog-modal-body p{margin-bottom:14px;}
+  .blog-modal-body b{color:var(--jungle-dark);}
+  .blog-modal-cta{
+    margin-top:20px;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+  }
+
   /* TESTIMONIALS */
   .testimonials-section{
     background:var(--jungle-dark);
@@ -643,6 +757,34 @@
   .fine{margin-top:26px; font-size:11px; color:#7E9689; border-top:1px solid rgba(227,169,57,0.15); padding-top:16px;}
 
   /* WHATSAPP FAB - fixed, non-overlapping, animated to draw attention */
+  /* BACK TO TOP */
+  .back-to-top{
+    position:fixed;
+    left:16px;
+    bottom:16px;
+    width:46px; height:46px;
+    border-radius:50%;
+    background:var(--jungle-dark);
+    border:1.5px solid var(--gold);
+    color:var(--gold);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    box-shadow:0 4px 14px rgba(0,0,0,0.25);
+    z-index:60;
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(10px);
+    transition:opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+  }
+  .back-to-top.visible{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
+  }
+  .back-to-top:hover{background:var(--jungle);}
+
   .wa-fab-wrap{
     position:fixed;
     right:16px;
@@ -736,6 +878,8 @@
     .catalog-grid{grid-template-columns:repeat(4,1fr);}
     .regions-grid{flex-direction:row;}
     .testimonials-grid{flex-direction:row;}
+    .blog-grid{flex-direction:row;}
+    .blog-grid .blog-card{flex:1;}
     .testimonials-grid .testimonial-card{flex:1;}
     .regions-grid .region-card{flex:1; height:320px;}
     .services-grid{flex-direction:row;}
@@ -757,9 +901,9 @@
   <div class="nav-links">
     <a href="#inicio">Inicio</a>
     <a href="#nosotros">Nosotros</a>
-    <a href="#presencia">Presencia</a>
     <a href="#catalogo">Catálogo</a>
-    <a href="#servicios">Servicios</a>
+    <a href="#blog">Blog</a>
+    <a href="#contacto">Contacto</a>
   </div>
   <div class="nav-right">
     <a class="nav-cta" href="https://wa.me/51943279385?text=Hola%2C%20quisiera%20más%20información" target="_blank" rel="noopener">Contactar</a>
@@ -771,8 +915,8 @@
 <div class="mobile-menu" id="mobileMenu">
   <a href="#inicio">Inicio</a>
   <a href="#nosotros">Nosotros</a>
-  <a href="#presencia">Presencia</a>
   <a href="#catalogo">Catálogo</a>
+  <a href="#blog">Blog</a>
   <a href="#servicios">Servicios</a>
   <a href="#contacto">Contacto</a>
 </div>
@@ -854,6 +998,57 @@
     </div>
   </div>
 </section>
+
+<section class="blog-section" id="blog">
+  <div class="eyebrow">CONSEJOS</div>
+  <h2 class="section-title">Blog Selva Golden Group</h2>
+  <p class="lead">Guías prácticas para sacarle más vida a tu equipo agrícola.</p>
+  <div class="blog-grid">
+    <div class="blog-card" onclick="openBlogPost('motosierra')">
+      <div class="blog-card-img">
+        <svg width="44" height="44" viewBox="0 0 24 24" fill="none"><path d="M4 18l10-10M14 5l5 5-3 3-5-5z" stroke="#E3A939" stroke-width="1.8"/></svg>
+      </div>
+      <div class="blog-card-body">
+        <div class="blog-card-date">GUÍA DE COMPRA</div>
+        <h3>Cómo elegir la motosierra correcta</h3>
+        <p>No todas las motosierras sirven para lo mismo. Te explicamos qué mirar según el trabajo que vas a hacer.</p>
+        <div class="read-more">Leer más →</div>
+      </div>
+    </div>
+    <div class="blog-card" onclick="openBlogPost('desbrozadora')">
+      <div class="blog-card-img">
+        <svg width="44" height="44" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="#E3A939" stroke-width="1.8"/><path d="M12 4v16" stroke="#E3A939" stroke-width="1.8"/></svg>
+      </div>
+      <div class="blog-card-body">
+        <div class="blog-card-date">MANTENIMIENTO</div>
+        <h3>Mantenimiento básico de desbrozadoras</h3>
+        <p>Cinco hábitos simples que alargan la vida útil de tu desbrozadora y evitan reparaciones caras.</p>
+        <div class="read-more">Leer más →</div>
+      </div>
+    </div>
+    <div class="blog-card" onclick="openBlogPost('repuestos-vs-nuevo')">
+      <div class="blog-card-img">
+        <svg width="44" height="44" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="#E3A939" stroke-width="1.8"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3" stroke="#E3A939" stroke-width="1.8"/></svg>
+      </div>
+      <div class="blog-card-body">
+        <div class="blog-card-date">CONSEJOS</div>
+        <h3>¿Reparar o comprar equipo nuevo?</h3>
+        <p>Señales claras para saber cuándo conviene cambiar repuestos y cuándo es mejor invertir en un equipo nuevo.</p>
+        <div class="read-more">Leer más →</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="blog-modal-overlay" id="blogModalOverlay" onclick="if(event.target===this) closeBlogPost()">
+  <div class="blog-modal">
+    <button class="blog-modal-close" onclick="closeBlogPost()">✕</button>
+    <div class="blog-modal-date" id="blogModalDate"></div>
+    <h3 id="blogModalTitle"></h3>
+    <div class="blog-modal-body" id="blogModalBody"></div>
+    <a class="blog-modal-cta btn-primary" href="https://wa.me/51943279385?text=Hola%2C%20tengo%20una%20consulta%20sobre%20mi%20equipo" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+  </div>
+</div>
 
 <section class="testimonials-section">
   <div class="eyebrow">TESTIMONIOS</div>
@@ -985,6 +1180,10 @@
   </div>
 </div>
 
+<button class="back-to-top" id="backToTop" aria-label="Volver arriba" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+
 <div class="wa-fab-wrap">
   <a class="wa-label" href="https://wa.me/51943279385?text=Hola%2C%20quisiera%20más%20información" target="_blank" rel="noopener" style="text-decoration:none; position:relative;">¡Escríbenos!</a>
   <a class="wa-fab" href="https://wa.me/51943279385?text=Hola%2C%20quisiera%20más%20información" target="_blank" rel="noopener">
@@ -998,6 +1197,16 @@
   const mobileMenu = document.getElementById('mobileMenu');
   burgerBtn.addEventListener('click', () => mobileMenu.classList.toggle('open'));
   mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+  // Back to top button visibility
+  const backToTop = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    if(window.scrollY > 500){
+      backToTop.classList.add('visible');
+    } else {
+      backToTop.classList.remove('visible');
+    }
+  });
 
   document.getElementById('contactForm').addEventListener('submit', function(e){
     e.preventDefault();
@@ -1019,6 +1228,65 @@
     badge.classList.add(isOpen ? 'open' : 'closed');
     badge.innerHTML = `<span class="dot"></span> ${isOpen ? 'Abierto ahora' : 'Cerrado ahora'}`;
   })();
+
+  // Blog posts
+  const BLOG_POSTS = {
+    'motosierra': {
+      date: 'GUÍA DE COMPRA',
+      title: 'Cómo elegir la motosierra correcta',
+      body: `
+        <p>No toda motosierra sirve para todo trabajo. Antes de comprar, lo primero es preguntarte para qué la vas a usar la mayoría de las veces: no es lo mismo tumbar árboles grandes que hacer poda o cortar leña ocasional.</p>
+        <p><b>Para trabajo ligero u ocasional</b> (poda, leña, mantenimiento de chacra pequeña): busca motores de baja cilindrada, más livianos y fáciles de manejar. Vas a cansarte menos y el gasto en combustible es menor.</p>
+        <p><b>Para trabajo pesado diario</b> (tumbado, aserrío, uso profesional): necesitas más cilindrada y una espada más larga. Aquí conviene invertir un poco más porque el motor va a trabajar exigido todos los días.</p>
+        <p><b>Un detalle que casi nadie pregunta:</b> el largo de la espada debe ir acorde al grosor de lo que vas a cortar. Una espada muy larga para trabajo liviano solo te agrega peso innecesario; una muy corta para troncos gruesos te obliga a hacer doble corte y desgasta más la cadena.</p>
+        <p>Y algo clave que sí influye en cuánto te va a durar: la disponibilidad de repuestos. De nada sirve comprar la más potente si después no consigues cadena, barra o carburador cuando se malogre. Por eso trabajamos con marcas de las que sí tenemos repuestos en stock constante.</p>
+        <p>Si no estás seguro cuál te conviene, cuéntanos qué trabajo vas a hacer y te recomendamos el modelo correcto — sin venderte de más.</p>
+      `
+    },
+    'desbrozadora': {
+      date: 'MANTENIMIENTO',
+      title: 'Mantenimiento básico de desbrozadoras',
+      body: `
+        <p>La mayoría de desbrozadoras no fallan por mala calidad, fallan por falta de mantenimiento simple que toma minutos. Estos 5 hábitos alargan la vida de tu equipo y evitan reparaciones caras:</p>
+        <p><b>1. Revisa el filtro de aire cada jornada.</b> En zonas de tierra o pasto seco se satura rápido. Un filtro sucio hace que el motor jale mal y gaste más combustible.</p>
+        <p><b>2. Usa la mezcla de combustible correcta.</b> Una mezcla mal hecha (mucho o poco aceite) es la causa número uno de motores fundidos. Sigue siempre la proporción que indica el fabricante.</p>
+        <p><b>3. Limpia el cabezal después de cada uso</b>, sobre todo si cortaste en zonas húmedas o con barro. La tierra acumulada desgasta el cabezal y el eje.</p>
+        <p><b>4. No dejes combustible viejo en el tanque</b> si no vas a usar la máquina por varias semanas. El combustible viejo daña el carburador y es una de las razones más comunes por las que un equipo "no arranca" después de guardado.</p>
+        <p><b>5. Revisa la cuchilla o hilo de corte antes de empezar.</b> Una cuchilla desgastada obliga al motor a hacer más esfuerzo del necesario, lo que acelera el desgaste general.</p>
+        <p>Si tu desbrozadora ya está fallando, tráela o cuéntanos los síntomas por WhatsApp — muchas veces el arreglo es más simple (y barato) de lo que parece.</p>
+      `
+    },
+    'repuestos-vs-nuevo': {
+      date: 'CONSEJOS',
+      title: '¿Reparar o comprar equipo nuevo?',
+      body: `
+        <p>Es una pregunta que nos hacen seguido: "¿le cambio el repuesto o mejor compro uno nuevo?". No hay una regla única, pero sí señales claras que ayudan a decidir.</p>
+        <p><b>Conviene reparar cuando:</b></p>
+        <p>— El motor sigue en buen estado y solo falla una pieza específica (carburador, bujía, cadena, cuchilla).<br>
+        — El equipo tiene pocos años de uso.<br>
+        — El costo del repuesto es claramente menor a lo que costaría un equipo nuevo (regla general: si el arreglo cuesta menos del 40-50% de un equipo nuevo, casi siempre vale la pena repararlo).</p>
+        <p><b>Conviene comprar nuevo cuando:</b></p>
+        <p>— Ya le has hecho varias reparaciones seguidas en poco tiempo — es señal de que el motor está llegando al final de su vida útil.<br>
+        — El modelo es muy antiguo y cada vez cuesta más conseguir repuestos originales.<br>
+        — El rendimiento (potencia, consumo de combustible) ya no es el mismo aunque esté "funcionando".</p>
+        <p>Un tip práctico: lleva un registro simple de cuánto gastas en reparaciones de un mismo equipo durante el año. Si ese número se acerca al precio de uno nuevo, generalmente es momento de cambiar.</p>
+        <p>Si tienes dudas sobre tu caso específico, mándanos una foto o descríbenos la falla por WhatsApp — te damos una opinión honesta antes de que gastes en algo que no te conviene.</p>
+      `
+    }
+  };
+
+  function openBlogPost(id){
+    const post = BLOG_POSTS[id];
+    if(!post) return;
+    document.getElementById('blogModalDate').textContent = post.date;
+    document.getElementById('blogModalTitle').textContent = post.title;
+    document.getElementById('blogModalBody').innerHTML = post.body;
+    document.getElementById('blogModalOverlay').classList.add('open');
+  }
+
+  function closeBlogPost(){
+    document.getElementById('blogModalOverlay').classList.remove('open');
+  }
 
   // Payment methods modal
   const PAYMENT_DATA = {
